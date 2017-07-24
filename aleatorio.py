@@ -1,12 +1,12 @@
 import random as r
 import os
 
-directorio = 'C:/Users/Eduardo/Desktop/archivos_aleatorios/'
+directorio = '/home/steeven/Desktop/archivos/'
 
 if not os.path.exists(directorio):
     os.makedirs(directorio)
 
-contador = 50
+contador = 10
 letras = 'abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 for i in range(contador):

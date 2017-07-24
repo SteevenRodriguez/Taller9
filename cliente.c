@@ -21,7 +21,7 @@
 
 int main(int argc, char ** argv)
 {
-  int cliente;
+  int client;
 
   if(argc != 5){
   	printf("Error!!\n");

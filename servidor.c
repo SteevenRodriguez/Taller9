@@ -49,7 +49,7 @@ int main(int argc, char ** argv)
   }
 //mantener open
   int keep = 1;
-  setsockopt(servidor, SOL_SOCKET, SO_REUSEADDR, &abierto, sizeof(keep));
+  setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, &keep, sizeof(keep));
 
 
   int link = bind(sd, (struct sockaddr *)&direccion_servidor, sizeof(direccion_servidor));
@@ -91,7 +91,7 @@ int main(int argc, char ** argv)
       recv(client, add, BUFLEN, 0);
       printf("\nUsuario conectado\n");
 
-      printf("Buscanco archivo: %s\n", ruta);
+      printf("Buscanco archivo: %s\n", add);
 
       int fd = open(add, O_RDONLY,S_IROTH);
       
@@ -100,7 +100,7 @@ int main(int argc, char ** argv)
         printf("Error al abrir el archivo\n");
         char * mensaje = "Error al abrir el archivo";
         send(client, mensaje, strlen(mensaje) ,0);
-        close(cliente);
+        close(client);
         continue;
       }
         
@@ -120,7 +120,7 @@ int main(int argc, char ** argv)
       break;
     }
     else{
-      close(cliente);
+      close(client);
       continue;
     }
 
@@ -128,4 +128,4 @@ int main(int argc, char ** argv)
 
   return 0;
 }
-}
+
