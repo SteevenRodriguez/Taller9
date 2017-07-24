@@ -6,7 +6,7 @@ directorio = '/home/steeven/Desktop/archivos/'
 if not os.path.exists(directorio):
     os.makedirs(directorio)
 
-contador = 10
+contador = 50
 letras = 'abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 for i in range(contador):

@@ -67,7 +67,7 @@ int main(int argc, char ** argv)
   	printf("No es posible escuchar en ese puerto\n");
   	return -1;
   }
-  printf("Enlazado al puerto.\n");
+  printf("Servidor Iniciado.\n");
 
   struct sockaddr_in direccion_cliente;
   memset(&direccion_servidor, 0, sizeof(direccion_cliente));
@@ -76,7 +76,7 @@ int main(int argc, char ** argv)
   while(1)
   {
     int client = accept(sd,(struct sockaddr *)&direccion_cliente,&tam);
-
+//FORK
     int pid = fork();
 
     if (pid==0){
@@ -104,7 +104,7 @@ int main(int argc, char ** argv)
         continue;
       }
         
-      printf("Archivo abierto correctamente\n");
+      printf("Archivo abierto\n");
       int filesize;
         
       while((filesize = read(fd, file, BUFRD)) > 0)
@@ -113,7 +113,7 @@ int main(int argc, char ** argv)
         memset(file, 0, BUFRD);
       }
         
-      printf("Archivo enviado correctamente\n");
+      printf("Archivo enviado\n");
       close(fd);
       free(file);
       close(client);
